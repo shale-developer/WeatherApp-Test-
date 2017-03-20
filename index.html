@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App Assessment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
+
+    <!-- map handlers  -->
+    <script src="http://example.gajotres.net/include/angular-google-maps/angular-google-maps.min.js"></script>
+    <script src="http://example.gajotres.net/include/loadsh/lodash.min.js"></script>
+    <!--    -->
+    <!--<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>-->
+</head>
+<body ng-app="app">
+
+<div class="container" ng-controller="mainCtrl">    
+        <center ng-show="loading">
+            <div  class="loader"></div>
+            <br>
+            <h4>Loading results...</h4>
+        </center>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <center>
+                   <h2 ng-hide="loading">Weather Results for {{location}}</h2>
+                </center>
+            </div>
+        </div>
+        <div class="row" ng-repeat="i in info">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                Description : 
+                <br> 
+                Main : 
+            </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    {{i.description}}
+                    <br>
+                    {{i.main}}
+                </div>
+            </div>
+<div class="row" ng-repeat="i in moreDetails">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                grnd_level :
+                <br> 
+                humidity : 
+                <br> 
+                pressure : 
+                <br>
+                sea_level
+                <br>
+                temp
+                <br>
+                temp_max
+                <br>
+                temp_min
+            </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    {{i.grnd_level}}
+                    <br>
+                    {{i.humidity}}
+                    <br>
+                    {{i.pressure}}
+                    <br>
+                    {{i.sea_level}}
+                    <br>
+                    {{i.temp}}
+                    <br>
+                    {{i.temp_max}}
+                    <br>
+                    {{i.temp_min}}
+                </div>
+            </div>
+        <div class="row">
+            <center>
+                <button ng-click="update()" class="btn btn-success">Refresh</button>
+            </center>
+        </div>
+    </div>
+</body>
+</html>
